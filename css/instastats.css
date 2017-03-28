@@ -1,0 +1,108 @@
+/* !!! Position !!! */
+.instastats {
+  padding : 1em 1em 3em 5em;
+  width   : 640px;
+  height  : 400px;
+}
+.instastats svg {
+/*   width   : 100%; */
+/*   height  : 100%; */
+  width   : 640px;
+  height  : 400px;
+}
+
+
+/* Fonts */
+.instastats {
+  font-family : Lato, Helvetica, san-serif;
+}
+
+/* Title */
+.instastats .title {
+  margin      : 0.8em 0;
+  font-size   : 1.5em;
+  font-weight : 700;
+  color       : #666;
+}
+.instastats.loading .title {
+  -webkit-animation: pulsate 2s ease-out;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes pulsate {
+  0%   { color : #666; }
+  50%  { color : #EC6607; }
+  100% { color : #666; }
+}
+
+
+.instastats .chewy {
+  float : right;
+  margin-top : -1.5em;
+  font-size : 0.7em;
+}
+.instastats .chewy a {
+  color : #666;
+  text-decoration : none;
+}
+
+/* Tooltip */
+.instastats .tooltip {
+  display   : none;                    /* Start hidden */
+  position  : absolute;
+  transform : translate(-100%, -100%); /* Display top left of the cursor */
+  max-width : 15em;
+  margin    : -0.5em;                  /* Margin between it's specified location and its real location */
+  padding   : 0.5em 1em;
+  border-radius    : 0.5em;
+  background-color : RGBA(230,230,230,0.8);
+}
+
+
+/* Graph */
+.instastats svg {
+  overflow : visible;
+}
+
+  /* Axis */
+  .instastats .axis line {
+    stroke : #666;
+  }
+  .instastats .axis text {
+    fill   : #333;
+  }
+  .instastats .y-axis .axisLabel {
+    transform   : rotate(-90deg);
+    text-anchor : end;
+    fill        : #333;
+  }
+  .instastats .y-axis .domain {
+    display : none;
+  }
+
+  /* Graph Container */
+  .instastats .graph path {
+    stroke-linejoin : round;
+    stroke-linecap  : round;
+    stroke-width    : 1.5px;
+    fill            : none;
+  }
+  .instastats .graph circle {
+    r       : 1.5px;
+    fill    : #fff;
+  }
+
+  /* Fade gets applied to the line container */
+  .instastats .faded .series {
+    opacity : 0.2;
+  }
+  /* Highlight gets applied to the line container */
+  .instastats .series.highlighted {
+    opacity      : 1;
+  }
+  .instastats .series.highlighted path {
+    stroke-width : 4px;
+  }
+  .instastats .series.highlighted circle {
+    r            : 3px;
+    stroke-width : 2px;
+  }
