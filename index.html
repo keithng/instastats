@@ -12,16 +12,32 @@
   <script src="./lib/instastats.js"                                                          type="text/javascript" charset="utf-8"></script>
   <script>
     window.onload = function () {
-      var graph = new InstaStats({
-        targ    : "#graph1",                                         // Must match id of div where the graph is going to go
-        key     : "5acb96a85506437badbfb0a8f961488a",                // API key - GET YOUR OWN, as this one may be revoked at any time
+/*       // Explore mode: Dropdown box to select subject and groups
+      var graph     = new InstaStats({
+        targ    : "#graph",                           // Must match id of div where the graph is going to go
+        key     : "5acb96a85506437badbfb0a8f961488a", // API key - GET YOUR OWN, as this one may be revoked at any time
+      })
+ */
+/*       // Fixed mode: Show predefined subject and group
+      var graph     = new InstaStats({
+        targ    : "#graph",                           // Must match id of div where the graph is going to go
+        key     : "5acb96a85506437badbfb0a8f961488a", // API key - GET YOUR OWN, as this one may be revoked at any time
         subject : "crt",                                             // Optional: Defining here means it's fixed
         group   : "Christchurch activity by ANZSIC06 division A/S/T" // Optional: Defining here means it's fixed
+      })
+ */
+      // URL mode: Subject and group are grabbed from the URL
+      var urlParams = new URLSearchParams(window.location.search)
+      var graph     = new InstaStats({
+        targ    : "#graph",                           // Must match id of div where the graph is going to go
+        key     : "5acb96a85506437badbfb0a8f961488a", // API key - GET YOUR OWN, as this one may be revoked at any time
+        subject : urlParams.get("subject"),
+        group   : urlParams.get("group")
       })
     }
   </script>
 </head>
 <body>
-  <div id="graph1"></div>
+  <div id="graph"></div>
 </body>
 </html>
