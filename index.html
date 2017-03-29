@@ -27,12 +27,18 @@
       })
  */
       // URL mode: Subject and group are grabbed from the URL
-      var urlParams = new URLSearchParams(window.location.search)
+      var url    = decodeURIComponent(window.location.search),
+          params = {}
+      _.each(url.replace("?", "").split("&"), function (v) {
+        v = v.split("=")
+        params[v[0]] = v[1]
+      })
+
       var graph     = new InstaStats({
         targ    : "#graph",                           // Must match id of div where the graph is going to go
         key     : "5acb96a85506437badbfb0a8f961488a", // API key - GET YOUR OWN, as this one may be revoked at any time
-        subject : urlParams.get("subject"),
-        group   : urlParams.get("group")
+        subject : params.subject,
+        group   : params.group
       })
     }
   </script>
